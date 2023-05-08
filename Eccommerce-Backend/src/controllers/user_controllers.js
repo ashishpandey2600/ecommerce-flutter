@@ -21,16 +21,16 @@ createAccount: async function(req,res){
         const{
             email,password
         }=req.body;
-        const foundUser = await UserModel.findOne({email:email});
+        const foundUser = await UserModel.findOne({email:email, password:password});
         if(!foundUser){
             return res.json({ success: false, message:"User not found!"});
 
         }
-       const passwordsMatch=bcrypt.compareSync(password, foundUser.password);
+       const passwordsMatch=bcrypt.compare(password, foundUser.password);
        if(!passwordsMatch){
         return res.json({ success: false, message:"Incorrect password! "});
        }
-       return res.json({success: true,data:foundUser});
+       return res.json({success: true, data:foundUser});
 
     }catch(ex){
         return res.json({success: false,message: ex});

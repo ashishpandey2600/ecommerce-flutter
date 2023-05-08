@@ -18,6 +18,7 @@ const userSchema = new Schema({
 
 
 });
+//findone function
 
 userSchema.pre('save', function (next) {
     this.id = uuid.v1();
@@ -41,7 +42,7 @@ userSchema.pre(['update', 'findOneAndUpdate', 'UpdateOne'], function (next) {
     next();
 });
 
-const UserModel = model('User', userSchema);
+const UserModel = model('user', userSchema);
 
 module.exports = UserModel;
 
