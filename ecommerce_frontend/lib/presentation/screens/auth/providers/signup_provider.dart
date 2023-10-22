@@ -6,23 +6,21 @@ import 'package:ecommerce_frontend/logic/cubits/user_cubit/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginProvider with ChangeNotifier {
+class SignupProvider with ChangeNotifier {
   final BuildContext context;
 
-  LoginProvider(this.context) {
-    _listenToUserCubit();
-  }
+  SignupProvider(this.context) {}
   bool isLoading = false;
   String error = "";
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   StreamSubscription? _userSubscription;
 
   void _listenToUserCubit() {
     log("Listening to user state...");
-    _userSubscription =
-        BlocProvider.of<UserCubit>(context).stream.listen((UserState) {
+    _userSubscription = BlocProvider.of(context).stream.listen((UserState) {
       if (UserState is UserLoadingState) {
         isLoading = true;
         error = "";
@@ -39,18 +37,20 @@ class LoginProvider with ChangeNotifier {
     });
   }
 
-  void logIn() async {
-    if (!formKey.currentState!.validate()) return;
+  void createAccount() async {
+    if (formKey.currentState!.validate()) return;
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
+   
 
     BlocProvider.of<UserCubit>(context)
-        .signIn(email: email, password: password);
+        .createAccount(email: email, password: password);
   }
 
   @override
   void dispose() {
     _userSubscription?.cancel();
+    // TODO: implement dispose
     super.dispose();
   }
 }

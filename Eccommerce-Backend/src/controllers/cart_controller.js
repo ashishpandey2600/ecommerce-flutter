@@ -7,24 +7,14 @@
         try{
             const user = req.params.user;
             const foundCart = await CartModel.findOne({ user: user});
-
             if(!foundCart){
                 return res.json({ success: true,data: []});
             }
             return res.json({ success: true,data: foundCart.items});
-
-
-
         }catch(ex){
             return res.json({ success: false,data: foundCart, message:" Product added to cart"});
         }
-
-        
-
     },
-
-    
-
     addToCart: async function(req,res){
 
         try{
