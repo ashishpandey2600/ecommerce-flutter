@@ -13,6 +13,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 mongoose.connect("mongodb+srv://ashishpandey2600:9461069794*aA@mycluster.nq3tqbx.mongodb.net/ecommercedatabse?retryWrites=true&w=majority");
+// mongoose.connect("mongodb://atlas-sql-644c8011de3aee4c9e2277a2-ityvi.a.query.mongodb.net/ecommercedatabse?ssl=true&authSource=admin");
 
 const UserRoutes = require('./routes/user_routes');
 app.use("/api/user",UserRoutes);

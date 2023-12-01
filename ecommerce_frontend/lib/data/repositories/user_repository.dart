@@ -31,7 +31,6 @@ class UserRepository {
       Response response = await _api.sendRequest.get("/user/signIn",
           data: jsonEncode({"email": email, "password": password}));
       ApiResponse apiResponse = ApiResponse.fromResponse(response);
-
       if (!apiResponse.success) {
         throw apiResponse.message.toString();
       }

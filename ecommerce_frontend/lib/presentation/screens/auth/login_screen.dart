@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:ecommerce_frontend/core/ui.dart';
 import 'package:ecommerce_frontend/presentation/screens/auth/providers/login_provider.dart';
+import 'package:ecommerce_frontend/presentation/screens/auth/signup_screen.dart';
 import 'package:ecommerce_frontend/presentation/widgets/gap_widget.dart';
 import 'package:ecommerce_frontend/presentation/widgets/linkbutton.dart';
 import 'package:ecommerce_frontend/presentation/widgets/primary_textfield.dart';
@@ -101,7 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   LinkButton(
                     text: "SignUp",
-                    onpressed: () {},
+                    onpressed: () {
+                      Navigator.pushNamed(context, SignupScreen.routeName);
+                    },
                   )
                 ],
               )

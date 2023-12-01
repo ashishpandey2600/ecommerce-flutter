@@ -1,3 +1,4 @@
+import 'package:ecommerce_frontend/presentation/screens/auth/login_screen.dart';
 import 'package:ecommerce_frontend/presentation/screens/auth/providers/signup_provider.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<SignupProvider>(context);
+    final provider = Provider.of<SignUpProvider>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -36,7 +37,7 @@ class _SignupScreenState extends State<SignupScreen> {
             children: [
               const GapWidget(),
               Text(
-                "LogIn",
+                "Sign Up",
                 style: TextStyles.heading2,
               ),
               const GapWidget(),
@@ -78,14 +79,15 @@ class _SignupScreenState extends State<SignupScreen> {
               const GapWidget(),
               PrimaryTextField(
                 labelText: "Confirm Password",
-                controller: provider.passwordController,
+                controller: provider.confirmPasswordController,
                 obscureText: true,
                 prefixIcon: const Icon(Icons.password),
                 validator: (value) {
                   if (value == null ||
                       value.trim().isEmpty ||
-                      provider.passwordController.text.trim() != value.trim()) {
-                    return "Password doesnot match!";
+                      provider.confirmPasswordController.text.trim() !=
+                          value.trim()) {
+                    return "Password does not match!";
                   }
                   return null;
                 },
@@ -99,14 +101,14 @@ class _SignupScreenState extends State<SignupScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                 Text(
+                  Text(
                     "Don't have an account?",
                     style: TextStyles.body2,
                   ),
                   LinkButton(
-                    text: "Sign up ",
+                    text: " Login",
                     onpressed: () {
-                      Navigator.pushNamed(context, SignupScreen.routeName);
+                      Navigator.pushNamed(context, LoginScreen.routeName);
                     },
                   )
                 ],

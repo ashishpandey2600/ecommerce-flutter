@@ -9,7 +9,6 @@ createAccount: async function(req,res){
                 const newUser = new UserModel(userData);
                 await newUser.save();
                 return req.json({ success: true, data: newUser, message: "User created" });
-
             }
             catch(ex){
                 return res.json({success: false,message: ex});
