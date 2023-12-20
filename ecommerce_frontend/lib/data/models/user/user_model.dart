@@ -1,5 +1,5 @@
 class UserModel {
-  String? sId;//objectId
+  String? sId; //objectId
   String? fullName;
   String? email;
   String? password;
@@ -11,20 +11,19 @@ class UserModel {
   String? id;
   String? createdOn;
 
-
-  UserModel(
-      {this.sId,
-      this.fullName,
-      this.email,
-      this.password,
-      this.phoneNumber,
-      this.address,
-      this.city,
-      this.state,
-      this.profileProgress,
-      this.id,
-      this.createdOn,
-      });
+  UserModel({
+    this.sId,
+    this.fullName,
+    this.email,
+    this.password,
+    this.phoneNumber,
+    this.address,
+    this.city,
+    this.state,
+    this.profileProgress,
+    this.id,
+    this.createdOn,
+  });
 
   UserModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -38,15 +37,14 @@ class UserModel {
     profileProgress = json['profileProgress'];
     id = json['id'];
     createdOn = json['createdOn'];
-   
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['_id'] = sId;
     data['fullName'] = fullName;
     data['email'] = email;
-    data['password'] =password;
+    data['password'] = password;
     data['phoneNumber'] = phoneNumber;
     data['address'] = address;
     data['city'] = city;

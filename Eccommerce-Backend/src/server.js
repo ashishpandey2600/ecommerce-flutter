@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(cors());
-
+// Pls Turn off your hostel wifi then use mongo db after connecting the hosspot
 mongoose.connect("mongodb+srv://ashishpandey2600:9461069794*aA@mycluster.nq3tqbx.mongodb.net/ecommercedatabse?retryWrites=true&w=majority");
 // mongoose.connect("mongodb://atlas-sql-644c8011de3aee4c9e2277a2-ityvi.a.query.mongodb.net/ecommercedatabse?ssl=true&authSource=admin");
 
