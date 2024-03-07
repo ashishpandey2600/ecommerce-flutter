@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_frontend/core/ui.dart';
 import 'package:ecommerce_frontend/data/models/product/product_model.dart';
@@ -32,6 +34,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               itemCount: widget.productModel.images?.length ?? 0,
               slideBuilder: (index) {
                 String url = widget.productModel.images![index];
+                log(url);
                 return CachedNetworkImage(imageUrl: url);
               },
             ),

@@ -74,7 +74,8 @@ class _UserFeedScreenState extends State<UserFeedScreen> {
                         ],
                       ),
                     ),
-                    Icon(CupertinoIcons.cart_fill)
+                    CupertinoButton(
+                        onPressed: () {}, child: Icon(CupertinoIcons.cart_fill))
                   ],
                 ),
               );
